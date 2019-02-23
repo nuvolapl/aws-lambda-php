@@ -1,0 +1,20 @@
+#!/opt/bin/php
+<?php declare(strict_types=1);
+
+use Nuvola\AwsLambdaFramework\Exception\LambdaException;
+
+require_once __DIR__ . '/autoload.php';
+
+while (true) {
+    try {
+        require __DIR__ . '/bootstrap.php';
+    } catch (LambdaException $e) {
+        echo \json_encode(
+            [
+                $e->getFile(),
+                $e->getLine(),
+                $e->getMessage(),
+            ]
+        );
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "92d302001fa0af1e81202c5f20bfaffa",
+    "packages": [
+        {
+            "name": "nuvolapl/aws-lambda-php-framework",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nuvolapl/aws-lambda-php-framework.git",
+                "reference": "572dcc84cdf2fcc0161b49e149203f8641c7be43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nuvolapl/aws-lambda-php-framework/zipball/572dcc84cdf2fcc0161b49e149203f8641c7be43",
+                "reference": "572dcc84cdf2fcc0161b49e149203f8641c7be43",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "^1.7",
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nuvola\\AwsLambdaFramework\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Bartek Chmura",
+                    "email": "bartek@nuvola.pl"
+                }
+            ],
+            "description": "AWS Lambda PHP Framework",
+            "time": "2019-02-26T10:43:26+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.3",
+        "ext-json": "^1.7"
+    },
+    "platform-dev": []
+}
