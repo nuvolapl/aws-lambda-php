@@ -4,30 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92d302001fa0af1e81202c5f20bfaffa",
+    "content-hash": "c9177ef15ef1b324da343c37490e0386",
     "packages": [
         {
             "name": "nuvolapl/aws-lambda-php-framework",
-            "version": "v1.0.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuvolapl/aws-lambda-php-framework.git",
-                "reference": "572dcc84cdf2fcc0161b49e149203f8641c7be43"
+                "reference": "e22c5a5621042150fcfb743b24582680caaee61b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuvolapl/aws-lambda-php-framework/zipball/572dcc84cdf2fcc0161b49e149203f8641c7be43",
-                "reference": "572dcc84cdf2fcc0161b49e149203f8641c7be43",
+                "url": "https://api.github.com/repos/nuvolapl/aws-lambda-php-framework/zipball/e22c5a5621042150fcfb743b24582680caaee61b",
+                "reference": "e22c5a5621042150fcfb743b24582680caaee61b",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "^1.7",
+                "ext-curl": "*",
+                "ext-json": "*",
                 "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Nuvola\\AwsLambdaFramework\\": "src/"
+                    "Nuvola\\AwsLambdaFramework\\": "src/",
+                    "Test\\Nuvola\\AwsLambdaFramework\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -38,18 +43,20 @@
                 }
             ],
             "description": "AWS Lambda PHP Framework",
-            "time": "2019-02-26T10:43:26+00:00"
+            "time": "2019-02-28T21:55:31+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "nuvolapl/aws-lambda-php-framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3",
-        "ext-json": "^1.7"
+        "ext-json": "*"
     },
     "platform-dev": []
 }

@@ -7,12 +7,10 @@
 
 /runtime/bin/php
 /runtime/lib/php/extensions/*
-/runtime/lib/php/extensions/.gitignore
+!/runtime/lib/php/extensions/.gitignore
 
 /var/*
 !/var/.gitignore
-!/var/logs
-/var/logs/*
-!/var/logs/.gitignore
 
-/vendor/
+/vendor/*
+!/vendor/.gitignore

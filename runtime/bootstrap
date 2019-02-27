@@ -1,14 +1,44 @@
 #!/opt/bin/php
 <?php declare(strict_types=1);
 
-use Nuvola\AwsLambdaFramework\Exception\LambdaException;
+use App\Handler\EntrypointHandler;
+use Nuvola\AwsLambdaFramework\Exception\HttpException as HttpException;
+use Nuvola\AwsLambdaFramework\Http\Client;
+use Nuvola\AwsLambdaFramework\Kernel;
+use Nuvola\AwsLambdaFramework\Lambda\Request;
 
 require_once __DIR__ . '/autoload.php';
 
+$client = new Client("http://{$_ENV['AWS_LAMBDA_RUNTIME_API']}");
+
 while (true) {
+    $headers = [];
+
     try {
-        require __DIR__ . '/bootstrap.php';
-    } catch (LambdaException $e) {
+        $data = $client->get('/2018-06-01/runtime/invocation/next', $headers);
+    } catch (HttpException $e) {
+        echo \json_encode(
+            [
+                $e->getFile(),
+                $e->getLine(),
+                $e->getMessage(),
+            ]
+        );
+    }
+
+    $request = Request::create($data);
+
+    $kernel = new Kernel($_ENV['_HANDLER']);
+    $kernel->registerHandler(new EntrypointHandler()); // TODO: move to $kernel->boot() with DI
+
+    $response = $kernel->handle($request);
+
+    try {
+        $client->post(
+            "/2018-06-01/runtime/invocation/{$headers['Lambda-Runtime-Aws-Request-Id']}/response",
+            \json_encode($response)
+        );
+    } catch (HttpException $e) {
         echo \json_encode(
             [
                 $e->getFile(),

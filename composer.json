@@ -15,8 +15,8 @@
     },
     "require": {
         "php": "^7.3",
-        "ext-json": "^1.7",
-        "nuvolapl/aws-lambda-php-framework": "^1.0"
+        "ext-json": "*",
+        "nuvolapl/aws-lambda-php-framework": "dev-develop"
     },
     "config": {
         "preferred-install": {
@@ -24,5 +24,5 @@
         },
         "sort-packages": true
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }

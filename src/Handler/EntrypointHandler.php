@@ -7,14 +7,20 @@ use Nuvola\AwsLambdaFramework\Lambda\JsonResponse;
 use Nuvola\AwsLambdaFramework\Lambda\Request;
 use Nuvola\AwsLambdaFramework\Lambda\Response;
 
-class EntryPointHandler implements HandlerInterface
+class EntrypointHandler implements HandlerInterface
 {
     public function __invoke(Request $request): Response
     {
         return new JsonResponse(
             [
-                'version' => '1.1.0',
+                'version' => '1.0.0',
                 'datetime' => (new \DateTime())->format('c'),
+                'request' => [
+                    'http' => $request->getHttpMethod(),
+                    'path' => $request->getPath(),
+                    'queryStringParameters' => $request->getQueryStringParameters()->getArrayCopy(),
+                    'body' => $request->getBody(),
+                ]
             ]
         );
     }
